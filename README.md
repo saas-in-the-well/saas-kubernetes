@@ -5,7 +5,7 @@ kafka sample application
    https://kafka.apache.org/downloads2
 
 - #### 사용자 다운로드 압축 해제 및 경로 이동
-   cd /Users/hyeongwon.lee/Desktop/kafka_2.12-3.7.0/bin
+   cd {User Path}/kafka_2.12-3.7.0/bin
 
 - ##### zookeeper 실행
    zookeeper-server-start ../config/zookeeper.properties
