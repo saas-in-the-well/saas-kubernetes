@@ -2,7 +2,7 @@
 kafka sample application
 
 - #### kafka_2.12-3.7.0.tgz 다운로드 및 설치
-   https://kafka.apache.org/downloads2
+   https://kafka.apache.org/downloads
 
 - ##### kafka 압축 해제 및 경로 이동
   - cd {UserPath}/kafka_2.12-3.7.0/bin
