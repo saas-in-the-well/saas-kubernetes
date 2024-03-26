@@ -1,21 +1,28 @@
 # kafka-chat
 kafka sample application
 
-- #### kafka_2.12-3.7.0.tgz 다운로드 및 설치
-   https://kafka.apache.org/downloads
+- ## VER2.0 
 
-- ##### kafka 압축 해제 및 경로 이동
-  - cd {UserPath}/kafka_2.12-3.7.0/bin
+- ##### MacOS Docker 설치 
+  - 다운로드 https://www.docker.com/products/docker-desktop/
+  - 참고 https://goddaehee.tistory.com/312
+  - 터미널에서 설치 확인 (docker -v)
+    ![log](./img/docker0.png)
+  - docker desktop 실행
 
-- ##### zookeeper 실행
-  - zookeeper-server-start ../config/zookeeper.properties
+- #### docker-compose.yml (docker 실행 후 동작) 
+  - 터미널 kafka-chat root 경로에서 docker-compose 컨테이너 실행  
+    docker-compose up -d (실행) </br>
+    docker-compose down  (중지)
+    ![log](./img/compose1.png)</br>
+ 
+  -  docker-compose.yml 에서도 순차적으로 실행 가능 위와 같음
+  - ![log](./img/compose0.png)
+    - zookeeper 실행
+    - ![log](./img/zookeeper.png)
+    - kafka 실행
+    - ![log](./img/kafka.png) 
 
-- #### Socket Server Settings
-  - vi {UserPath}/kafka_2.12-3.7.0/config/server.properties
-  - #listeners=PLAINTEXT://:9092 => listeners=PLAINTEXT://localhost:9092 (linlisteners 수정)
-
-- #### kafka 실행
-  - kafka-server-start ../config/server.properties
 
 - #### API 호출 http://localhost:8080/kafka/send/message
   - ChatController broadcastGroupMessage -> KafkaTemplate Topic 생성 및 메시지 전달
@@ -25,7 +32,11 @@ kafka sample application
 ![log](./img/sample0.png)
 ![log](./img/sample1.png)
 
----
+
+- #### Kafka-ui 확인 http://localhost:9001
+
+
+### etc
 
 - #### 토픽 목록 조회
   - kafka-topics --bootstrap-server localhost:9092 --list
