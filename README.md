@@ -19,3 +19,5 @@ kafka sample application
 
 - #### API 호출 http://localhost:8080/kafka/send/message
   - ChatController broadcastGroupMessage -> KafkaTemplate Topic 생성 및 메시지 전달
+
+(./img/sample0.png)
