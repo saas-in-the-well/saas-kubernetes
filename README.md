@@ -23,3 +23,10 @@ kafka sample application
 - ### log 확인
 ![log](./img/sample0.png)
 ![log](./img/sample1.png)
+
+---
+
+- #### 토픽 목록 조회
+  - kafka-topics --bootstrap-server localhost:9092 --list
+- #### 토픽 생성
+  - kafka-topics --bootstrap-server localhost:9092 --partitions 1 --create --topic {토픽명}
