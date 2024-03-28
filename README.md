@@ -2,6 +2,7 @@
 kafka sample application
 
 - ## VER2.0 
+- ### JDK 11
 
 - ##### MacOS Docker 설치 
   - 다운로드 https://www.docker.com/products/docker-desktop/
@@ -11,7 +12,7 @@ kafka sample application
   - docker desktop 실행
 
 - #### docker-compose.yml (docker 실행 후 동작) 
-  - 터미널 kafka-chat root 경로에서 docker-compose 컨테이너 실행  
+  - 터미널 kafka-chat root /docker 경로에서 docker-compose 컨테이너 실행  
     docker-compose up -d (실행) </br>
     docker-compose down  (중지)
     ![log](./img/compose1.png)</br>
