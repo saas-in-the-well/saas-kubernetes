@@ -34,8 +34,8 @@ kafka sample application
 ![log](./img/sample1.png)
 
 
-- #### Kafka-ui 확인 http://localhost:9001
-
+- #### Kafka-ui 확인 http://localhost:29002
+![log](./img/kafka_ui.png)
 
 ### etc
 
