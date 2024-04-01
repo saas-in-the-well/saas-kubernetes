@@ -38,7 +38,7 @@ services:
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
 
   kafka-exporter:
-    image: danielqsj/kafka-exporter
+    image: 'danielqsj/kafka-exporter'
     command: [ "--kafka.server=kafka:9093" ]
     ports:
-      - 9308:9308
+      - '9308:9308'

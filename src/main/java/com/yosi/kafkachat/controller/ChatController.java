@@ -1,10 +1,13 @@
 package com.yosi.kafkachat.controller;
 
 import com.yosi.kafkachat.dto.Order;
+import com.yosi.kafkachat.service.OrderCreateService;
 import com.yosi.kafkachat.service.ProducerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @CrossOrigin
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class ChatController {
 
     private final ProducerService producerService;
+    private final OrderCreateService orderCreateService;
 
     @PostMapping("/send/message")
     public void broadcastGroupMessage(String message) {
@@ -23,5 +27,13 @@ public class ChatController {
     @PostMapping("/order")
     public void order(@RequestBody Order order) {
         producerService.order(order);
+    }
+
+    @PostMapping("/createOrder")
+    public void orderDataCreate(){
+        List<Order> orders = orderCreateService.orderDataCreate();
+        for (Order order : orders) {
+            producerService.order(order);
+        }
     }
 }

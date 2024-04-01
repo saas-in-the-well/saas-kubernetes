@@ -4,10 +4,13 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      group-id: test-topic
-      auto-offset-reset: earliest
+      group-id:
+        dev: yosi
+        stg: test-topic
+      auto-offset-reset: earliest # 기본값은 latest: (최근값부터), earliest: 처음부터
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: true # 기본값은 true 이며, 자동으로 offset 을 커밋하여 읽은 위치를 기록
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer

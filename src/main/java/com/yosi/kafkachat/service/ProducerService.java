@@ -12,17 +12,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProducerService {
 
-    @Value("${spring.kafka.consumer.group-id}")
-    private String topic;
+    @Value("${spring.kafka.consumer.group-id.dev}")
+    private String devTopic;
+
+    @Value("${spring.kafka.consumer.group-id.stg}")
+    private String stgTopic;
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     public void sendMessage(String message) {
         log.info("send message : {}", message);
-        kafkaTemplate.send(topic, message);
+        kafkaTemplate.send(devTopic, message);
     }
 
     public void order(Order order) {
         log.info("order : {}", order);
-        kafkaTemplate.send(topic, order.toString());
+        kafkaTemplate.send(stgTopic, order.toString());
     }
 }
