@@ -42,3 +42,5 @@ kafka sample application
   - kafka-topics --bootstrap-server localhost:9092 --list
 - #### 토픽 생성
   - kafka-topics --bootstrap-server localhost:9092 --partitions 1 --create --topic {토픽명}
+- #### 파티션 수 증가
+  - kafka-topics --bootstrap-server [YOUR_BOOTSTRAP_SERVER] --alter --topic [YOUR_TOPIC_NAME] --partitions [NEW_PARTITION_COUNT]
