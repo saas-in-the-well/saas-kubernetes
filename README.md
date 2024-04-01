@@ -15,14 +15,12 @@ kafka sample application
   - 터미널 kafka-chat root /docker 경로에서 docker-compose 컨테이너 실행  
     docker-compose up -d (실행) </br>
     docker-compose down  (중지)
-    ![log](./img/compose1.png)</br>
  
-  -  docker-compose.yml 에서도 순차적으로 실행 가능 위와 같음
-  - ![log](./img/compose0.png)
-    - zookeeper 실행
-    - ![log](./img/zookeeper.png)
-    - kafka 실행
-    - ![log](./img/kafka.png) 
+  - 또는 docker-compose.yml 에서도 순차적으로 실행 또는 한번에 가능 위와 같음
+  ![log](./img/docker1.png)
+  - 정상 실행 확인
+  ![log](./img/docker2.png)
+
 
 
 - #### API 호출 http://localhost:8080/kafka/send/message
@@ -35,7 +33,8 @@ kafka sample application
 
 
 - #### Kafka-ui 확인 http://localhost:29002
-![log](./img/kafka_ui.png)
+  - 토픽 및 메시지 기록 확인
+  ![log](./img/kafka_ui.png)
 
 ### etc
 
