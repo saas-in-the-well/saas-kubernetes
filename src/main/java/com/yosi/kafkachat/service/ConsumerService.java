@@ -8,8 +8,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class ConsumerService {
 
-    @KafkaListener(topics = "${spring.kafka.consumer.group-id}", groupId = "group-dev")
+    @KafkaListener(topics = "${spring.kafka.consumer.group-id.dev}", groupId = "group-dev")
     public void receiveMessage(String message) {
-        log.info("receive message : {}", message);
+        log.info("[group-dev] receive message : {}", message);
+    }
+
+    @KafkaListener(topics = "${spring.kafka.consumer.group-id.stg}", groupId = "group-stg")
+    public void stgReceiveMessage(String message) {
+        log.info("[group-stg] receive message : {}", message);
     }
 }
