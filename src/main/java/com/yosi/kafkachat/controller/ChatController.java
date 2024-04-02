@@ -29,7 +29,7 @@ public class ChatController {
         producerService.order(order);
     }
 
-    @PostMapping("/createOrder")
+    @PostMapping("/create-order")
     public void orderDataCreate(){
         List<Order> orders = orderCreateService.orderDataCreate();
         for (Order order : orders) {
