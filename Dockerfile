@@ -7,10 +7,10 @@ FROM arm64v8/openjdk:11-jdk-slim@sha256:482a519d80f99a32117003a369c14fdc180c3175
 WORKDIR /app
 
 # 호스트의 JAR 파일을 Docker 이미지로 복사합니다.
-COPY build/libs/kafka-chat-0.0.1-SNAPSHOT.jar /app/kafka-chat-0.0.1-SNAPSHOT.jar
+COPY build/libs/kube-kafka-chat-0.0.1-SNAPSHOT.jar /app/kube-kafka-chat-0.0.1-SNAPSHOT.jar
 
 # 어플리케이션을 실행합니다.
-CMD ["java", "-jar", "kafka-chat-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "kube-kafka-chat-0.0.1-SNAPSHOT.jar"]
 
 
 
