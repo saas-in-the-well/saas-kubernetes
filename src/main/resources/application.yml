@@ -2,7 +2,7 @@ spring:
   application:
     name: kube-kafka-chat
   kafka:
-    bootstrap-servers: 192.168.49.2:31092
+    bootstrap-servers: 10.96.93.124:9093
     consumer:
       group-id:
         dev: yosi

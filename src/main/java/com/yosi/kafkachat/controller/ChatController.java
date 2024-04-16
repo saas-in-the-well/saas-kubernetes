@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/kafka")
+@RequestMapping(value = "/api/kafka")
 public class ChatController {
 
     private final ProducerService producerService;
