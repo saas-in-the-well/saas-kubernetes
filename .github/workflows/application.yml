@@ -48,4 +48,5 @@ jobs:
 
       - name: Update Kubernetes Manifest
         run: |
-          sed -i 's|image: |image: ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }}|' kube/springboot.yaml
+          sed -i 's|^.*image:.*|  image: ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }}|' kube/springboot.yaml
+
