@@ -13,6 +13,3 @@ kubectl -n argocd patch secret argocd-secret -p '{"stringData": {"admin.password
 
 echo "admin 계정의 비밀번호를 $NEW_PASSWORD로 변경하였습니다."
 
-
-
-kubectl logs -f kafka-ui-67fd57fb87-rmqb9 -n default
