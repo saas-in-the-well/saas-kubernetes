@@ -28,7 +28,20 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
+      - name: Extract branch name
+        id: vars
+        shell: bash
+        run: echo "::set-output name=branch::$(echo ${GITHUB_REF#refs/heads/})"
+
       - name: Build Docker image
         run: |
-          docker build . -t jaeholee1104/my_docker_hub:${{ github.sha }} --build-arg VERSION=${{ github.sha }}
+          docker build . -t ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }} --build-arg VERSION=${{ github.sha }}
 
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.JAEHO_DOCKER_ID }}
+          password: ${{ secrets.JAEHO_DOCKER_PASSWORD }}
+
+      - name: Push Docker image to Docker Hub
+        run: docker push ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }}
