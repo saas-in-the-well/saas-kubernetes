@@ -45,4 +45,3 @@ kafka sample application
 - #### 파티션 수 증가
   - kafka-topics --bootstrap-server [YOUR_BOOTSTRAP_SERVER] --alter --topic [YOUR_TOPIC_NAME] --partitions [NEW_PARTITION_COUNT]
 
-
