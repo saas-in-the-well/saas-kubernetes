@@ -28,3 +28,7 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
+      - name: Build Docker image
+        run: |
+          docker build . -t jaeholee1104/my_docker_hub:${{ github.sha }} --build-arg VERSION=${{ github.sha }}
+
