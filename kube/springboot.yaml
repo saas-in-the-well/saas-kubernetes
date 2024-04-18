@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-container
-          image: lasjiny/kafka-app:release-dev_anseongjin-81ce0cde474c261c770026076dd5e5f66cb9b4ce
+          image: lasjiny/kafka-app:my-spring-application-release-dev_anseongjin-7b215c392513f76aa707047023175171b95a8de1
           imagePullPolicy: Always
           ports:
             - containerPort: 8080 # 어플리케이션이 노출하는 포트로 변경해야 합니다.
