@@ -17,6 +17,9 @@ spec:
           image: jaeholee1104/my_docker_hub:release-dev_jaeho-0cc5de7e863c3356097d2f00767dbd72f5c08eef
           ports:
             - containerPort: 8080
+      imagePullSecrets:
+        - name: docker-hub-secret
+
 ---
 apiVersion: v1
 kind: Service
