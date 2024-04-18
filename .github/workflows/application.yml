@@ -1,4 +1,4 @@
-name: Application CI/CD
+name: Java CI with Gradle and Docker
 
 on:
   push:
