@@ -1,4 +1,4 @@
-name: Application CI/CD
+name: Java CI with Gradle and Docker
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "dev_jaeho" ]
 
 jobs:
-  build-docker-image:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,51 +26,30 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle Wrapper
-        run: |
-          ./gradlew build
+        run: ./gradlew build
 
-      # Extract branch name
       - name: Extract branch name
         id: vars
         shell: bash
         run: echo "::set-output name=branch::$(echo ${GITHUB_REF#refs/heads/})"
 
-      # Build Docker image
       - name: Build Docker image
         run: |
           docker build . -t ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }} --build-arg VERSION=${{ github.sha }}
 
-  push-docker-image:
-    needs: build-docker-image
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.JAEHO_DOCKER_ID }}
           password: ${{ secrets.JAEHO_DOCKER_PASSWORD }}
 
-      # Push Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ needs.build-docker-image.outputs.branch }}-${{ github.sha }}
+        run: docker push ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }}
 
-  update-kubernetes-manifest:
-    needs: push-docker-image
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      # Update Kubernetes Manifest - Part 1: Update image tag with sed
-      - name: Update image tag
-        run: |
-          sed -i 's|^.*image:.*|          image: ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }}|' kube/springboot.yaml
-
-      # Update Kubernetes Manifest - Part 2: Git pull, add, commit, and push
-      - name: Git pull & push
+      - name: Update Kubernetes Manifest
         run: |
           git pull
+          sed -i 's|^.*image:.*|          image: ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }}|' kube/springboot.yaml
           git config --global user.email ${{ secrets.JAEHO_GITHUB_EMAIL }}
           git config --global user.name "GitHub Actions"
           git add kube/springboot.yaml
