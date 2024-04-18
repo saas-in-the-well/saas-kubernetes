@@ -37,6 +37,7 @@ public class ChatController {
         }
     }
 
+    @ResponseBody
     @GetMapping("/api/test")
     public String apiTest(){
         log.info("#### API TEST ####");
