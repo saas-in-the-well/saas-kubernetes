@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-container
-          image: jaeholee1104/my_docker_hub:release-dev_jaeho-e10f6f260ae90790b5cca1d746cbcc2366c32718
+          image: jaeholee1104/my_docker_hub:release--aa9ca7ecd2c324dfbdf56f6dbc246c20ffb423f6
           ports:
             - containerPort: 8080
       imagePullSecrets:
