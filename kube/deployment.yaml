@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: spring-boot-container
-          image: my-spring-application:0.0.17
-          imagePullPolicy: IfNotPresent
+          image: lasjiny/kafka-app:latest # Docker Hub의 사용자명과 레파지토리명을 사용하세요.
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080 # 어플리케이션이 노출하는 포트로 변경해야 합니다.
 ---
