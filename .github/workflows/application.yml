@@ -49,7 +49,7 @@ jobs:
       - name: Update Kubernetes Manifest
         run: |
           sed -i 's|^.*image:.*|          image: ${{ secrets.JAEHO_DOCKER_NAME }}/${{ secrets.JAEHO_DOCKER_REPOSITORY }}:release-${{ steps.vars.outputs.branch }}-${{ github.sha }}|' kube/springboot.yaml
-          git config --global user.email "actions-user@github.com"
+          git config --global user.email "leejaeho114@gmail.com"
           git config --global user.name "GitHub Actions"
           git add kube/springboot.yaml
           git commit -m "Update image tag in Kubernetes manifest"
