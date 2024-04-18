@@ -63,5 +63,5 @@ jobs:
       # 이미지를 Docker 재태그 및 Hub에 푸시
       - name: Push Docker image to DockerHub
         run: |
-          docker tag my-spring-application:release-dev_anseongjin-${{ github.sha }} yosigoon/saasfication:my-spring-application-release-dev_anseongjin-${{ github.sha }}
+          docker tag my-spring-application:release-dev_anseongjin-${{ github.sha }} lasjiny/kafka-app:my-spring-application-release-dev_anseongjin-${{ github.sha }}
           docker push lasjiny/kafka-app:my-spring-application-release-dev_anseongjin-${{ github.sha }}
