@@ -36,4 +36,10 @@ public class ChatController {
             producerService.order(order);
         }
     }
+
+    @GetMapping("/api/test")
+    public String apiTest(){
+        log.info("#### API TEST ####");
+        return "asdfasdfasfd";
+    }
 }
