@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-apps-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-apps
+  template:
+    metadata:
+      labels:
+        app: saas-apps
+    spec:
+      containers:
+        - name: saas-front-container
+          image: saas-front-application:0.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4000
+        - name: saas-bff-container
+          image: saas-bff-application:0.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6000
+        - name: saas-weather-container
+          image: saas-weather-application:0.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 7000
+        - name: saas-oil-container
+          image: saas-oil-application:0.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-apps-service
+spec:
+  selector:
+    app: saas-apps
+  ports:
+    - name: saas-front-port
+      protocol: TCP
+      port: 80
+      targetPort: 4000
+    - name: saas-bff-port
+      protocol: TCP
+      port: 81
+      targetPort: 6000
+    - name: saas-weather-port
+      protocol: TCP
+      port: 82
+      targetPort: 7000
+    - name: saas-oil-port
+      protocol: TCP
+      port: 83
+      targetPort: 8000
