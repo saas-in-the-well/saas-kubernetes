@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-oil-application
-          image: lasjiny/saas-oil:tag-f50b361fce3b8191a23ad1ce5aad97cf09c32874
+          image: lasjiny/saas-oil:tag-fd5474359c327f53a3b4a51815651aa94b5e1006
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081 # 어플리케이션이 노출하는 포트로 변경해야 합니다.
