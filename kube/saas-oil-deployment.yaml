@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-oil-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-oil
+  template:
+    metadata:
+      labels:
+        app: saas-oil
+    spec:
+      containers:
+        - name: saas-oil-container
+          image: yosigoon/saas-oil:saas-oil-application-release-dev_hyeongwon-6fb62e26e79b224ed0d4bf01cbd0f0a18a2c605c
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-oil-service
+spec:
+  selector:
+    app: saas-oil
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

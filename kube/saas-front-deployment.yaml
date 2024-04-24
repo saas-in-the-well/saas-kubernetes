@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-front-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-front
+  template:
+    metadata:
+      labels:
+        app: saas-front
+    spec:
+      containers:
+        - name: saas-front-container
+          image: yosigoon/saas-front:saas-front-application-release-dev_hyeongwon-6fb62e26e79b224ed0d4bf01cbd0f0a18a2c605c
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-front-service
+spec:
+  selector:
+    app: saas-front
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
