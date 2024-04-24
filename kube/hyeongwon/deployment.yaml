@@ -14,22 +14,22 @@ spec:
     spec:
       containers:
         - name: saas-front-container
-          image: saas-front-application:0.0.1
+          image: yosigoon/saasfication:saas-front-application
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4000
         - name: saas-bff-container
-          image: saas-bff-application:0.0.1
+          image: yosigoon/saasfication:saas-bff-application
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6000
         - name: saas-weather-container
-          image: saas-weather-application:0.0.1
+          image: yosigoon/saasfication:saas-weather-application
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 7000
         - name: saas-oil-container
-          image: saas-oil-application:0.0.1
+          image: yosigoon/saasfication:saas-oil-application
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
