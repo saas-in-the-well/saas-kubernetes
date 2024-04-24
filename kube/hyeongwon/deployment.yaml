@@ -29,7 +29,7 @@ spec:
           ports:
             - containerPort: 7000
         - name: saas-oil-container
-          image: yosigoon/saas-oil:saas-oil-application-release-dev_hyeongwon-b3c82073305a6581bb80bd7ff39875623709560f-release-dev_hyeongwon-02ef5f6b8d327fa56fa8650515f2c50f649ded7c-release-dev_hyeongwon-737a9bf48b9c744fd23c53147d101f4bbc818d7b-release-dev_hyeongwon-5fbe8dbc5c7e8d0f960c76d65cc106e829ed9815-release-dev_hyeongwon-31041632ee1f4950cf721fea9c1e8d49de262537-release-dev_hyeongwon-c1a02f1dab24782a80486c5ff9c6a7ce80b8ac25-release-dev_hyeongwon-3290bd4bdebed59b11f9d14abfaef3a341995077-release-dev_hyeongwon-224d4278a8b3cd262179eddd3ee5f5e4205ce840
+          image: yosigoon/saas-oil:saas-oil-application-release-dev_hyeongwon-510487f286f2ff8d2961cb06052fe3e912cfad5a-release-dev_hyeongwon-b3c82073305a6581bb80bd7ff39875623709560f-release-dev_hyeongwon-02ef5f6b8d327fa56fa8650515f2c50f649ded7c-release-dev_hyeongwon-737a9bf48b9c744fd23c53147d101f4bbc818d7b-release-dev_hyeongwon-5fbe8dbc5c7e8d0f960c76d65cc106e829ed9815-release-dev_hyeongwon-31041632ee1f4950cf721fea9c1e8d49de262537-release-dev_hyeongwon-c1a02f1dab24782a80486c5ff9c6a7ce80b8ac25-release-dev_hyeongwon-3290bd4bdebed59b11f9d14abfaef3a341995077-release-dev_hyeongwon-224d4278a8b3cd262179eddd3ee5f5e4205ce840
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
