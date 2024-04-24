@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-front-container
-          image: yosigoon/saas-front:saas-front-application
+          image: yosigoon/saas-front:saas-front-application-release-dev_hyeongwon-ba5e1fe79a2e8133041dffb307235e1de3787e0d
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4000
