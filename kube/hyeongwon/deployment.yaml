@@ -29,7 +29,7 @@ spec:
           ports:
             - containerPort: 7000
         - name: saas-oil-container
-          image: yosigoon/saasfication:saas-oil-application
+          image: yosigoon/saasfication:saas-oil-application-release-dev_hyeongwon-224d4278a8b3cd262179eddd3ee5f5e4205ce840
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
