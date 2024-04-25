@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: jaeholee1104/saas-weather:release-dev_jaeho-611a1493bb709979e600772f2b0a6ce003f7091e
+          image: yeonggy/fastapi-server:1714026669
           ports:
-            - containerPort: 8080
+            - containerPort: 7070
 
 ---
 apiVersion: v1
@@ -29,7 +29,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 7000
+      targetPort: 7070
   type: NodePort
 
 
