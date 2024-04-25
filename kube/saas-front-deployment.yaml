@@ -16,6 +16,7 @@ spec:
         - name: saas-front-container
           image: yosigoon/saas-front:saas-front-application-release-dev_hyeongwon-c37bdcc51ad2e0964ff5f9a4418414ee88258372
           imagePullPolicy: Always
+          command: [ 'sh', '-c', 'echo The app is running! && sleep 3600' ]
           ports:
             - containerPort: 4000
 ---
