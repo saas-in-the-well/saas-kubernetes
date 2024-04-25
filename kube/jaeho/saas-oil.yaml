@@ -28,8 +28,8 @@ spec:
     app: saas-oil-application
   ports:
     - protocol: TCP
-      port: 6000
-      targetPort: 6001
+      port: 80
+      targetPort: 8000
   type: NodePort
 
 

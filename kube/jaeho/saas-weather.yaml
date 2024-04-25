@@ -28,8 +28,8 @@ spec:
     app: ssaas-weather-application
   ports:
     - protocol: TCP
-      port: 7000
-      targetPort: 7001
+      port: 80
+      targetPort: 7000
   type: NodePort
 
 
