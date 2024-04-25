@@ -28,8 +28,8 @@ spec:
     app: saas-bff-application
   ports:
     - protocol: TCP
-      port: 5000
-      targetPort: 5001
+      port: 80
+      targetPort: 6000
   type: NodePort
 
 
