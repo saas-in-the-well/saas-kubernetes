@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-oil-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-oil-application
+  template:
+    metadata:
+      labels:
+        app: saas-oil-application
+    spec:
+      containers:
+        - name: saas-oil-container
+          image: jaeholee1104/saas-oil:release-dev_jaeho-e23cfe8ef0a7853d090e74475bad96d6e9d2d20d
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-oil-service
+spec:
+  selector:
+    app: ssaas-oil-application
+  ports:
+    - protocol: TCP
+      port: 6000
+      targetPort: 6001
+  type: NodePort
+
+
