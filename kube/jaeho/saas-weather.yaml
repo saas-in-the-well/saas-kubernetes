@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: jaeholee1104/saas-weather:release-dev_jaeho-7b117712e18c5136cd8b858ed995ffdf786db066
+          image: jaeholee1104/saas-weather:release-dev_jaeho-202e9163fb8d5c8980c564f2f5894c2325d74305
           ports:
             - containerPort: 8080
 
