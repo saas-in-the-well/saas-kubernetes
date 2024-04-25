@@ -15,7 +15,7 @@ spec:
       containers:
         - name: saas-bff-container
           image: yosigoon/saas-bff:saas-bff-application-release-dev_hyeongwon-f747221991373604e491f44ae7fd6b1a3941f900
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 6000
 ---
