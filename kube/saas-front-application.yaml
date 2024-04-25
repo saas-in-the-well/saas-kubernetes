@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-front
-          image: lasjiny/saas_front:tag-7f97f7b6a60eeca9109ebca01e05b5d6c2b4bf62
+          image: lasjiny/saas_front:tag-def49b0bc6e0f8839e055567a22c96ce379145dc
           ports:
             - containerPort: 4000
 
