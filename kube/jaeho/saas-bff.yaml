@@ -25,7 +25,7 @@ metadata:
   name: saas-bff-service
 spec:
   selector:
-    app: ssaas-bff-application
+    app: saas-bff-application
   ports:
     - protocol: TCP
       port: 5000

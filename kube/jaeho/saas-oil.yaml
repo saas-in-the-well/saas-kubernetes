@@ -25,7 +25,7 @@ metadata:
   name: saas-oil-service
 spec:
   selector:
-    app: ssaas-oil-application
+    app: saas-oil-application
   ports:
     - protocol: TCP
       port: 6000
