@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: yeonggy/fastapi-server:1714026669
+          image: byeonggy/fastapi-server:1714026669
           ports:
             - containerPort: 7070
 
