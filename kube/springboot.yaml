@@ -17,8 +17,8 @@ spec:
           image: byeonggy/my-spring-application:1713934771
           ports:
             - containerPort: 8080
-      imagePullSecrets:
-        - name: docker-hub-secret
+      # imagePullSecrets:
+      #   - name: docker-hub-secret
 
 ---
 apiVersion: v1
