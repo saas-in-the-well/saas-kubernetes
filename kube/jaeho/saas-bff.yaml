@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-bff-container
-          image: jaeholee1104/saas-bff:release-dev_jaeho-7424465c5d42b8c98b30b0beb1f154fe9125bb2e
+          image: jaeholee1104/saas-bff:release-develop-929d181ae0592c6b20fe82298014c198f5a46809
           ports:
             - containerPort: 8080
 
