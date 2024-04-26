@@ -27,7 +27,7 @@ metadata:
   name: saas-weather-service
 spec:
   selector:
-    app: ssaas-weather-deployment
+    app: saas-weather-deployment
   ports:
     - protocol: TCP
       port: 80
