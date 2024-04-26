@@ -18,16 +18,38 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 2000
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/prometheus
+      volumes:
+        - name: config-volume
+          configMap:
+            name: prometheus-config
 ---
 apiVersion: v1
-kind: Service
+kind: ConfigMap
 metadata:
-  name: prometheus-service
-spec:
-  type: NodePort
-  selector:
-    app: prometheus
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 2000
+  name: prometheus-config
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 5s
+      evaluation_interval: 5s
+    
+    alerting:
+      alertmanagers:
+        - static_configs:
+            - targets: []
+    
+    rule_files:
+    # - "first_rules.yml"
+    # - "second_rules.yml"
+    
+    scrape_configs:
+      - job_name: "prometheus"
+        static_configs:
+          - targets: ["localhost:2000"]
+      
+      - job_name: "saas-oil-service"
+        static_configs:
+          - targets: ["saas-oil-service:9000"]
