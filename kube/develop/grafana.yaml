@@ -7,11 +7,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grafana-deployment
+      app: grafana
   template:
     metadata:
       labels:
-        app: grafana-deployment
+        app: grafana
     spec:
       containers:
         - name: grafana-container
@@ -29,7 +29,7 @@ metadata:
   namespace: monitoring
 spec:
   selector:
-    app: grafana-deployment
+    app: grafana
   ports:
     - protocol: TCP
       port: 80
