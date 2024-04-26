@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-oil-container
-          image: jaeholee1104/saas-oil:release-dev_jaeho-0033e6d571e53eae339f629fe6cd98f6c8fa85fa
+          image: jaeholee1104/saas-oil:release-develop-0d1b675f3c7d0533790167e899a65ea051d8717d
           ports:
             - containerPort: 8080
 
