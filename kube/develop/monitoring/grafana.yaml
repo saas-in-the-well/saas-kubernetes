@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana-deployment
   namespace: monitoring
+  name: grafana-deployment
 spec:
   replicas: 1
   selector:
@@ -25,8 +25,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana-service
   namespace: monitoring
+  name: grafana-service
 spec:
   selector:
     app: grafana

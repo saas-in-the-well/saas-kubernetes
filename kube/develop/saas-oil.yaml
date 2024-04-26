@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: saas-oil-deployment
   namespace: saas
+  name: saas-oil-deployment
 spec:
   replicas: 1
   selector:
@@ -23,8 +23,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: saas-oil-service
   namespace: saas
+  name: saas-oil-service
 spec:
   selector:
     app: saas-oil-deployment

@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: saas-weather-deployment
   namespace: saas
+  name: saas-weather-deployment
 spec:
   replicas: 1
   selector:
@@ -23,8 +23,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: saas-weather-service
   namespace: saas
+  name: saas-weather-service
 spec:
   selector:
     app: ssaas-weather-deployment

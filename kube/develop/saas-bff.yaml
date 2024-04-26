@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: saas-bff-deployment
   namespace: saas
+  name: saas-bff-deployment
 spec:
   replicas: 1
   selector:
@@ -23,8 +23,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: saas-bff-service
   namespace: saas
+  name: saas-bff-service
 spec:
   selector:
     app: saas-bff-deployment

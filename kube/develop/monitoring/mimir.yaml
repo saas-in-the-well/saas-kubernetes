@@ -1,33 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tempo-deployment
   namespace: monitoring
+  name: mimir-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tempo
+      app: mimir
   template:
     metadata:
       labels:
-        app: tempo
+        app: mimir
     spec:
       containers:
-        - name: tempo-container
-          image: grafana/tempo:latest
+        - name: mimir
+          image: grafana/mimir:latest
           ports:
-            - containerPort: 3200
+            - containerPort: 3300
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: tempo-service
   namespace: monitoring
+  name: mimir-service
 spec:
   selector:
-    app: tempo
+    app: mimir
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 3200
+      targetPort: 3300
