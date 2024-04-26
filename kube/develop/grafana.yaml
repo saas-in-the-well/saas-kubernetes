@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana-application
+  name: grafana-deployment
   namespace: monitoring
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grafana-application
+      app: grafana-deployment
   template:
     metadata:
       labels:
-        app: grafana-application
+        app: grafana-deployment
     spec:
       containers:
         - name: grafana-container
@@ -29,7 +29,7 @@ metadata:
   namespace: monitoring
 spec:
   selector:
-    app: grafana-application
+    app: grafana-deployment
   ports:
     - protocol: TCP
       port: 80

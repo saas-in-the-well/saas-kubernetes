@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki-deployment
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loki-deployment
+  template:
+    metadata:
+      labels:
+        app: loki-deployment
+    spec:
+      containers:
+        - name: loki-container
+          image: grafana/loki:latest
+          ports:
+            - containerPort: 3100
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loki-service
+spec:
+  selector:
+    app: loki-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3100
