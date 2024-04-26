@@ -30,7 +30,7 @@ spec:
                   trace:
                     backend: local
                     local:
-                      path: /Users/jaeho.lee/workspace/test
+                      path: /var/tempo
       volumes:
         - name: tempo-storage
           hostPath:
@@ -49,12 +49,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3200
-
-
-
-
-
-
-
-
-
