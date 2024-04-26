@@ -54,6 +54,7 @@ data:
         static_configs:
           - targets: ["localhost:2000"]
       
-      - job_name: "saas-oil-service"
+      - job_name: "saas-oil-service"        
         static_configs:
+          - metric_path: '/actuator/prometheus'
           - targets: ["saas-oil-service:9000"]
