@@ -14,7 +14,7 @@ spec:
         app: mimir
     spec:
       containers:
-        - name: mimir
+        - name: mimir-container
           image: grafana/mimir:latest
           ports:
             - containerPort: 3300
