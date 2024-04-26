@@ -18,13 +18,24 @@ spec:
           image: grafana/tempo:latest
           ports:
             - containerPort: 3200
+          volumeMounts:
+            - name: tempo-storage
+              mountPath: /var/tempo
           env:
-            - name: STORAGE_TYPE
-              value: loki
-            - name: STORAGE_CONFIG
+            - name: TEMPO_CONFIG
               value: |
-                loki:
-                  url: http://loki-service.monitoring:3100/loki/api/v1/push
+                server:
+                  http_listen_port: 3200
+                storage:
+                  trace:
+                    backend: local
+                    local:
+                      path: /Users/jaeho.lee/workspace/test
+      volumes:
+        - name: tempo-storage
+          hostPath:
+            path: /mnt/data/tempo
+            type: DirectoryOrCreate
 ---
 apiVersion: v1
 kind: Service
@@ -38,3 +49,12 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3200
+
+
+
+
+
+
+
+
+
