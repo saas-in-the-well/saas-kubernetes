@@ -41,3 +41,14 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3100
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mimir-config
+  namespace: saas
+data:
+  mimir.yaml: |
+    server:
+      http_listen_port: 3100
