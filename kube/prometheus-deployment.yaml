@@ -55,7 +55,14 @@ data:
         static_configs:
           - targets: [ "localhost:9090" ]
       
+      - job_name: "saas-bff-service"
+        metrics_path: "/actuator/prometheus"
+        static_configs:
+          - targets: [ "saas-bff-service.saas.svc.cluster.local:6000" ]
+      
       - job_name: "saas-oil-service"
         metrics_path: "/actuator/prometheus"
         static_configs:
           - targets: [ "saas-oil-service.saas.svc.cluster.local:8000" ]
+      
+            
