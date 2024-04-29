@@ -49,6 +49,8 @@ data:
   prometheus.yml: |
     global:
       scrape_interval: 5s
+      remote_write:
+        - url: http://mimir.namespace.svc.cluster.local:3100/api/v1/push
     scrape_configs:
       - job_name: "prometheus"
         static_configs:
