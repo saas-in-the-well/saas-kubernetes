@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-oil-container
-          image: yosigoon/saas-oil:saas-oil-application-release-dev_hyeongwon-68d6c379309144bea11e75455a3ff8e954ca5502
+          image: yosigoon/saas-oil:saas-oil-application-release-dev_hyeongwon-5c99247754467de56ab957f8c7f4e5e096a70f8e
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
