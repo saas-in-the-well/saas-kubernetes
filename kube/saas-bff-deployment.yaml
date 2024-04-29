@@ -24,6 +24,7 @@ kind: Service
 metadata:
   name: saas-bff-service
 spec:
+  type: NodePort
   selector:
     app: saas-bff
   ports:
