@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: yosigoon/saas-weather:saas-weather-application-release-dev_hyeongwon-73dc80a18cc02627175e3272e309c2deaa57169f
+          image: yosigoon/saas-weather:saas-weather-application-release-dev_hyeongwon-1a2805045c0b81913fdfa2cad7ccca4fa16d2165
           imagePullPolicy: Always
           ports:
             - containerPort: 7000
