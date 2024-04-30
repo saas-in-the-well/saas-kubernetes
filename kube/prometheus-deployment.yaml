@@ -65,5 +65,8 @@ data:
         metrics_path: "/actuator/prometheus"
         static_configs:
           - targets: [ "saas-oil-service" ]
-      
+
+      - job_name: "saas-weather-service"
+        static_configs:
+          - targets: [ "saas-weather-service" ]
             
