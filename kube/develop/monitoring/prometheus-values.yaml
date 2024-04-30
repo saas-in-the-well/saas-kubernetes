@@ -1,0 +1,8 @@
+server:
+  retention: "3d"  # 메트릭 데이터의 보존 기간 설정
+  scrapeInterval: "30s"  # 스크랩 주기 설정
+  externalUrl: "http://prometheus-server.monitoring.svc.cluster.local:80"  # 외부로 노출되는 URL 설정
+  additionalScrapeConfigs:
+    - job_name: saas-bff-job
+      static_configs:
+        - targets: ['saas-bff.saas:6000']  # 수집할 대상 추가
