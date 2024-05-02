@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-oil-container
-          image: jaeholee1104/saas-oil:release-dev_jaeho-0033e6d571e53eae339f629fe6cd98f6c8fa85fa
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:develop-58be68ee25c7154cafafaf98fcbf24aa6a17f309
           ports:
             - containerPort: 8080
       imagePullSecrets:
