@@ -1,33 +1,33 @@
-apiVersion:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-kind:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-metadata:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-  name:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-spec:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-  replicas:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-  selector:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-    matchLabels:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-      app:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-  template:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-    metadata:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-      labels:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-        app:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-    spec:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-      containers:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-        - name:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-          image:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-          imagePullPolicy:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-          command:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-          ports:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-            - containerPort:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-front-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-front
+  template:
+    metadata:
+      labels:
+        app: saas-front
+    spec:
+      containers:
+        - name: saas-front-container
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-front:dev_hyeongwon-3cae7d62603122295395eb2b05024f846a8bd8b4
+          imagePullPolicy: Always
+          command: [ 'sh', '-c', 'echo The app is running! && sleep 3600' ]
+          ports:
+            - containerPort: 4000
 ---
-apiVersion:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-kind:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-metadata:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-  name:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-spec:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-  selector:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-    app:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-  ports:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-    - protocol:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-      port:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
-      targetPort:dev_hyeongwon-292d9ba17dba06b9c20ff085f4fbeb25b163a0a6
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-front-service
+spec:
+  selector:
+    app: saas-front
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
