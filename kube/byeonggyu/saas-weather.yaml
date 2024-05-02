@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:e6206b8ee825c451f566aa63eb29f514f211e738
           ports:
             - containerPort: 7070
 
