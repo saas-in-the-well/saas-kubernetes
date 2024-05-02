@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: /$ECR_REPOSITORY:$IMAGE_TAG
+          image: /:
           ports:
             - containerPort: 7070
 
