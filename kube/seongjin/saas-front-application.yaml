@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-front-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-front
+  template:
+    metadata:
+      labels:
+        app: saas-front
+    spec:
+      containers:
+        - name: saas-front
+          image: lasjiny/saas_front:tag-4b19a576e48454b8b7f1bbd08213948913742db5
+          ports:
+            - containerPort: 4000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-front-service
+spec:
+  ports:
+    - port: 4000
+      targetPort: 4000
+      protocol: TCP
+  selector:
+    app: saas-front

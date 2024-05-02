@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-oil-application-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-oil-application
+  template:
+    metadata:
+      labels:
+        app: saas-oil-application
+    spec:
+      containers:
+        - name: saas-oil-application
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:dev_anseongjin-09ce85b765470bd32780e3285b1bee91eaed1fc5
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081 # 어플리케이션이 노출하는 포트로 변경해야 합니다.
+      imagePullSecrets:
+        - name: ecr-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-oil-application-svc
+spec:
+  selector:
+    app: saas-oil-application
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8081
+  type: NodePort
