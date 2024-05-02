@@ -15,9 +15,11 @@ spec:
     spec:
       containers:
         - name: saas-bff-container
-          image: :develop-4718006df492a409684dc0849cb2a3e20fcb2f3e
+          image: 794187215716.dkr.ecr.***.amazonaws.com/saas-bff:develop-4718006df492a409684dc0849cb2a3e20fcb2f3e
           ports:
             - containerPort: 8080
+      imagePullSecrets:
+        - name: aws-ecr-repo
 
 ---
 apiVersion: v1
