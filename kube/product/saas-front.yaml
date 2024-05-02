@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-front-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-front-deployment
+  template:
+    metadata:
+      labels:
+        app: saas-front-deployment
+    spec:
+      containers:
+        - name: saas-front-container
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-front:dev_hyeongwon-edfd2c066a67ff2dfb6f15be3dcd6c6d4daabe08
+          command: [ 'sh', '-c', 'echo The app is running! && sleep 3600' ]
+          ports:
+            - containerPort: 4080
+      imagePullSecrets:
+        - name: ecr-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: saas
+  name: saas-front-service
+spec:
+  selector:
+    app: saas-front-deployment
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
+  type: NodePort
+
+
