@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-oil-application
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:dev_anseongjin-a285e3e2655aa948a634b839186b132bb5d0554c
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:dev_anseongjin-09ce85b765470bd32780e3285b1bee91eaed1fc5
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081 # 어플리케이션이 노출하는 포트로 변경해야 합니다.
