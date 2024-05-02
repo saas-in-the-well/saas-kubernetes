@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-b4c3112fc98f988affc35f58c7903b2f9f153a40
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-af7d8520afaa63bef0e042794dda72f5ddad58fd
           ports:
             - containerPort: 8080
       imagePullSecrets:
