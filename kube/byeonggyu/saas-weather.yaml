@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: /:
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:3de4042621362d597aba3ebdfc62896f0bbb477f
           ports:
             - containerPort: 7070
 
