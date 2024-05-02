@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: jaeholee1104/saas-weather:release-dev_jaeho-611a1493bb709979e600772f2b0a6ce003f7091e
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-0033e6d571e53eae339f629fe6cd98f6c8fa85fa
           ports:
             - containerPort: 8080
 
