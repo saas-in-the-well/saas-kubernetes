@@ -17,7 +17,8 @@ spec:
           image: jaeholee1104/saas-bff:release-dev_jaeho-7424465c5d42b8c98b30b0beb1f154fe9125bb2e
           ports:
             - containerPort: 8080
-
+      imagePullSecrets:
+        - name: ecr-registry
 ---
 apiVersion: v1
 kind: Service

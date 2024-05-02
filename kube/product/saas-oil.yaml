@@ -17,7 +17,8 @@ spec:
           image: jaeholee1104/saas-oil:release-dev_jaeho-0033e6d571e53eae339f629fe6cd98f6c8fa85fa
           ports:
             - containerPort: 8080
-
+      imagePullSecrets:
+        - name: ecr-registry
 ---
 apiVersion: v1
 kind: Service

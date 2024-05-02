@@ -18,7 +18,8 @@ spec:
           image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:develop-58be68ee25c7154cafafaf98fcbf24aa6a17f309
           ports:
             - containerPort: 8080
-
+      imagePullSecrets:
+        - name: ecr-registry
 ---
 apiVersion: v1
 kind: Service
