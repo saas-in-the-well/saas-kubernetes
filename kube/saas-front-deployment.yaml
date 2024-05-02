@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: saas-front-container
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-front:dev_hyeongwon-fa55d0ca83d595fc2d58ba196cec10dc50ae4f9a
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-front:dev_hyeongwon-edfd2c066a67ff2dfb6f15be3dcd6c6d4daabe08
           imagePullPolicy: Always
           command: [ 'sh', '-c', 'echo The app is running! && sleep 3600' ]
           ports:
