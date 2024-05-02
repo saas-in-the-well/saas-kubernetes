@@ -18,6 +18,8 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081 # 어플리케이션이 노출하는 포트로 변경해야 합니다.
+      imagePullSecrets:
+        - name: regcred
 ---
 apiVersion: v1
 kind: Service
