@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
         - name: saas-weather-container
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:fea508839daf132a7f34e185b7bdf8f4941738b8
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-af7d8520afaa63bef0e042794dda72f5ddad58fd
           ports:
-            - containerPort: 7070
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: ecr-registry
 
 ---
 apiVersion: v1
@@ -31,5 +33,3 @@ spec:
       port: 80
       targetPort: 7070
   type: NodePort
-
-
