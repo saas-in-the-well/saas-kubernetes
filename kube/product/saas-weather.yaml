@@ -17,7 +17,8 @@ spec:
           image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-0033e6d571e53eae339f629fe6cd98f6c8fa85fa
           ports:
             - containerPort: 8080
-
+      imagePullSecrets:
+        - name: ecr-registry
 ---
 apiVersion: v1
 kind: Service
