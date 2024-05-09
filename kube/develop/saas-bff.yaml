@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: saas-bff-container
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-bff:develop-4718006df492a409684dc0849cb2a3e20fcb2f3e
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-bff:develop-d92ffa41bcb13dbafb68f47fe409d4a4ae83227a
           ports:
             - containerPort: 8080
       imagePullSecrets:
