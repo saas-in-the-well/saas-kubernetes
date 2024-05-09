@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: saas-bff-ingress
+  annotations:
+    kubernetes.io/ingress.class: "alb"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account-id:certificate/certificate-id
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:794187215716:certificate/b201c8a7-33f6-47bd-a623-f4c8d8a5abe5
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: saas-bff-service
+              servicePort: 80
