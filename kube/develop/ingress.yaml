@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: saas-bff-ingress
@@ -11,9 +11,13 @@ metadata:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:794187215716:certificate/b201c8a7-33f6-47bd-a623-f4c8d8a5abe5
 spec:
   rules:
-    - http:
-        paths:
-          - path: /*
-            backend:
-              serviceName: saas-bff-service
-              servicePort: 80
+  - http:
+      paths:
+      - path: /*
+        pathType: Prefix
+        backend:
+          service:
+            name: saas-bff-service
+            port:
+              number: 80
+
