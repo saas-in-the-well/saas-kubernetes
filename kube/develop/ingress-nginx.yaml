@@ -18,4 +18,4 @@ spec:
               service:
                 name: saas-bff-service
                 port:
-                  number: 6000
+                  number: 80
