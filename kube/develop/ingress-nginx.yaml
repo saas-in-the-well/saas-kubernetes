@@ -3,14 +3,16 @@ kind: Ingress
 metadata:
   name: bff-ingress
   annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-origin: "http://d1qq5lqzvit9i9.cloudfront.net"
 spec:
   rules:
     - http:
         paths:
-          - path: /api/geo/location
-            pathType: Prefix
+          - pathType: Prefix
+            path: /api
             backend:
               service:
                 name: saas-bff-service
