@@ -1,15 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: bff-ingress
+  name: alb-bff-ingress
+  namespace: default
   annotations:
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://d1qq5lqzvit9i9.cloudfront.net"
+    kubernetes.io/ingress.class: "alb"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 spec:
   rules:
     - http:
         paths:
-          - path: /api/geo/location
+          - path: /api
             pathType: Prefix
             backend:
               service:
