@@ -16,7 +16,7 @@ spec:
       serviceAccountName: saas-weather-service-account
       containers:
         - name: saas-weather-container
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-8df6b3277d426f1ff657a6fadc989badc5cd9036
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-4307697a0d4d205ebb6858959b859cc4e0a3f1dd
           ports:
             - containerPort: 7000
       imagePullSecrets:
