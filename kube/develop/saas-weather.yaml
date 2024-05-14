@@ -13,6 +13,7 @@ spec:
       labels:
         app: saas-weather-deployment
     spec:
+      serviceAccountName: saas-weather-service-account
       containers:
         - name: saas-weather-container
           image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-f1e802079b676a7a72e6f144c570a7a2771e093b
