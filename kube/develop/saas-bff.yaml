@@ -13,6 +13,7 @@ spec:
       labels:
         app: saas-bff-deployment
     spec:
+      serviceAccountName: saas-bff-service-account
       containers:
         - name: saas-bff-container
           image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-bff:develop-d92ffa41bcb13dbafb68f47fe409d4a4ae83227a
