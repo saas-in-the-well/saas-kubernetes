@@ -13,9 +13,10 @@ spec:
       labels:
         app: saas-oil-deployment
     spec:
+      serviceAccountName: saas-oil-service-account
       containers:
         - name: saas-oil-container
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:develop-548309c51b1d5361374f0418cee42a2bbb0aeb6a
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:develop-59fa8cc9ee58c8ec46069c2966dd3d928b6dae5b
           ports:
             - containerPort: 8000
       imagePullSecrets:
