@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-# 클러스터 이름 지정
-CLUSTER_NAME="devops-saas-eks-cluster-0521"
 
 echo "Updating AWS EKS kubeconfig for cluster: $CLUSTER_NAME..."
 
