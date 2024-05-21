@@ -9,6 +9,7 @@ aws eks update-kubeconfig --region ap-northeast-2 --name $CLUSTER_NAME
 
 # Create ArgoCD namespace
 echo "Creating ArgoCD namespace..."
+kubectl create namespace saas
 kubectl create namespace argocd
 
 # Install ArgoCD
