@@ -10,7 +10,7 @@ chmod +x /Users/jaeho.lee/workspace/saasfication/saas-kubernetes/script/argoCD.s
 ./argoCD.sh
 
 chmod +x /Users/jaeho.lee/workspace/saasfication/saas-kubernetes/script/nginx-ingress.sh
-./ingress.sh
+./nginx-ingress.sh
 
 chmod +x /Users/jaeho.lee/workspace/saasfication/saas-kubernetes/script/grafana.sh
 ./grafana.sh
