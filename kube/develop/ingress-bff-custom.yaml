@@ -11,10 +11,20 @@ metadata:
 spec:
   tls:
     - hosts:
-        - jumpsoft.store
+        - '*.jumpsoft.store'
       secretName: tls-secret  # cert-manager가 자동으로 생성할 시크릿 이름
   rules:
     - host: jumpsoft.store
+      http:
+        paths:
+          - pathType: Prefix
+            path: /api
+            backend:
+              service:
+                name: saas-bff-service
+                port:
+                  number: 80
+    - host: '*.jumpsoft.store'
       http:
         paths:
           - pathType: Prefix
