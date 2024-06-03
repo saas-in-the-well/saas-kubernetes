@@ -5,14 +5,22 @@ metadata:
   namespace: saas
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://www.jumpsoft.shop"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://jumpsoft.shop"
 spec:
+  tls:
+    - hosts:
+        - api.jumpsoft.store
+      secretName: tls-secret  # cert-manager가 자동으로 생성할 시크릿 이름
   rules:
-    - http:
+    - host: api.jumpsoft.store
+      http:
         paths:
-          - pathType: Prefix
-            path: /api
+          - path: /api
+            pathType: Prefix
             backend:
               service:
                 name: saas-bff-service
