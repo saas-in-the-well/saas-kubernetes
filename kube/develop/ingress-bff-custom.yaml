@@ -4,13 +4,15 @@ metadata:
   name: bff-ingress
   namespace: saas
   annotations:
-    kubernetes.io/ingress.class: "alb"
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:794187215716:certificate/72f4b6ef-f35d-4ad9-8cb1-994d27fa740d
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-origin: "https://jumpsoft.shop"
 spec:
+  tls:
+    - hosts:
+        - jumpsoft.store
+      secretName: tls-secret  # cert-manager가 자동으로 생성할 시크릿 이름
   rules:
     - host: jumpsoft.store
       http:
