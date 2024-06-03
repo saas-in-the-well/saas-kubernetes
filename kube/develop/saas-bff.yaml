@@ -14,6 +14,8 @@ spec:
         app: saas-bff-deployment
     spec:
       serviceAccountName: saas-bff-service-account
+      nodeSelector:
+        node-type: application
       containers:
         - name: saas-bff-container
           image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-bff:develop-a828b760fa5478f60f2f00ee025a165b8283d42e
