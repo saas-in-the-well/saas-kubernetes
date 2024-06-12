@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: saas
+  name: saas-oil-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-oil-deployment
+  template:
+    metadata:
+      labels:
+        app: saas-oil-deployment
+    spec:
+      serviceAccountName: saas-oil-service-account
+      nodeSelector:
+        node-type: application
+      containers:
+        - name: saas-oil-container
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:develop-59fa8cc9ee58c8ec46069c2966dd3d928b6dae5b
+          ports:
+            - containerPort: 8000
+      imagePullSecrets:
+        - name: ecr-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: saas
+  name: saas-oil-service
+spec:
+  selector:
+    app: saas-oil-deployment
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: NodePort
+
+

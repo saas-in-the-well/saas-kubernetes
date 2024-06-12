@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: saas
+  name: saas-weather-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-weather-deployment
+  template:
+    metadata:
+      labels:
+        app: saas-weather-deployment
+    spec:
+      serviceAccountName: saas-weather-service-account
+      nodeSelector:
+        node-type: application
+      containers:
+        - name: saas-weather-container
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-weather:develop-9939e1f13913536427d04b50370b3aca38126257
+          ports:
+            - containerPort: 7000
+      imagePullSecrets:
+        - name: ecr-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: saas
+  name: saas-weather-service
+spec:
+  selector:
+    app: saas-weather-deployment
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 7000
+  type: NodePort
+
+

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: saas
+  name: saas-bff-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-bff-deployment
+  template:
+    metadata:
+      labels:
+        app: saas-bff-deployment
+    spec:
+      serviceAccountName: saas-bff-service-account
+      nodeSelector:
+        node-type: application
+      containers:
+        - name: saas-bff-container
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-bff:develop-a828b760fa5478f60f2f00ee025a165b8283d42e
+          ports:
+            - containerPort: 6000
+      imagePullSecrets:
+        - name: ecr-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: saas
+  name: saas-bff-service
+spec:
+  selector:
+    app: saas-bff-deployment
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 6000
+  type: NodePort
+

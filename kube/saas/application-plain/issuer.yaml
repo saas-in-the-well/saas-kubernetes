@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-bff
+  namespace: 'tenant-hotel-seoul'
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: jaeho.lee@bespinglobal.com
+    privateKeySecretRef:
+      name: letsencrypt-bff
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
+
