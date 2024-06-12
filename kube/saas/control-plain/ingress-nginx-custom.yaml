@@ -22,3 +22,30 @@ spec:
                 name: argocd-server
                 port:
                   number: 443
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana-ingress
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-grafana"
+spec:
+  tls:
+    - hosts:
+        - grafana.jumpsoft.store
+      secretName: grafana-tls
+  rules:
+    - host: grafana.jumpsoft.store
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: grafana
+                port:
+                  number: 3000
