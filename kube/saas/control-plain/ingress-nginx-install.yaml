@@ -1,5 +1,5 @@
 # https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/cloud/deploy.yaml
-# Deployment > nodeSelector > application 추가.
+# Deployment > nodeSelector > management 추가.
 
 apiVersion: v1
 kind: Namespace
@@ -495,7 +495,7 @@ spec:
               readOnly: true
       dnsPolicy: ClusterFirst
       nodeSelector:
-        node-type: application
+        node-type: management
         kubernetes.io/os: linux
       serviceAccountName: ingress-nginx
       terminationGracePeriodSeconds: 300
@@ -543,6 +543,7 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
       nodeSelector:
+        node-type: management
         kubernetes.io/os: linux
       restartPolicy: OnFailure
       securityContext:
@@ -592,6 +593,7 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
       nodeSelector:
+        node-type: management
         kubernetes.io/os: linux
       restartPolicy: OnFailure
       securityContext:
