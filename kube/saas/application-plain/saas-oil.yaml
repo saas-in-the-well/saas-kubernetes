@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: saas
+  namespace: tenant-hotel-seoul
   name: saas-oil-deployment
 spec:
   replicas: 1
@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: saas
+  namespace: tenant-hotel-seoul
   name: saas-oil-service
 spec:
   selector:
