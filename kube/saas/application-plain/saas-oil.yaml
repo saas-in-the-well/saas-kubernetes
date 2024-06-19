@@ -18,7 +18,7 @@ spec:
         node-type: application
       containers:
         - name: saas-oil-container
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:develop-59fa8cc9ee58c8ec46069c2966dd3d928b6dae5b
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-oil:develop-120a0c71a8052c0a8e596f5744878f7bf2459b86
           ports:
             - containerPort: 8000
       imagePullSecrets:
