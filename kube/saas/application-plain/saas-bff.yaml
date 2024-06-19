@@ -18,7 +18,7 @@ spec:
         node-type: application
       containers:
         - name: saas-bff-container
-          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-bff:develop-998a93dd1412c9bbf06a91074e6240958a02dc16
+          image: 794187215716.dkr.ecr.ap-northeast-2.amazonaws.com/saas-bff:develop-9ccbef7babb7d5f5086b0d054f6bc386e4309581
           ports:
             - containerPort: 6000
       imagePullSecrets:
